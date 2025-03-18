@@ -568,7 +568,7 @@ eprop_synapse_bsshslm_2020< targetidentifierT >::get_status( DictionaryDatum& d 
 {
   ConnectionBase::get_status( d );
   def< double >( d, names::weight, weight_ );
-  def< double >( d, names::tau_m_readout, tau_m_readout_ );
+  def< double >( d, "tau_m_readout", tau_m_readout_ );
   def< long >( d, names::size_of, sizeof( *this ) );
 
   DictionaryDatum optimizer_dict = new Dictionary();
@@ -593,7 +593,7 @@ eprop_synapse_bsshslm_2020< targetidentifierT >::set_status( const DictionaryDat
 
   updateValue< double >( d, names::weight, weight_ );
 
-  if ( updateValue< double >( d, names::tau_m_readout, tau_m_readout_ ) )
+  if ( updateValue< double >( d, "tau_m_readout", tau_m_readout_ ) )
   {
     if ( tau_m_readout_ <= 0 )
     {

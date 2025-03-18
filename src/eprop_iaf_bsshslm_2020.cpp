@@ -125,7 +125,7 @@ eprop_iaf_bsshslm_2020::Parameters_::get( DictionaryDatum& d ) const
   def< double >( d, names::beta, beta_ );
   def< double >( d, names::gamma, gamma_ );
   def< double >( d, names::I_e, I_e_ );
-  def< bool >( d, names::regular_spike_arrival, regular_spike_arrival_ );
+  def< bool >( d, "regular_spike_arrival", regular_spike_arrival_ );
   def< std::string >( d, names::surrogate_gradient_function, surrogate_gradient_function_ );
   def< double >( d, names::t_ref, t_ref_ );
   def< double >( d, names::tau_m, tau_m_ );
@@ -155,7 +155,7 @@ eprop_iaf_bsshslm_2020::Parameters_::set( const DictionaryDatum& d, Node* node )
   updateValueParam< double >( d, names::beta, beta_, node );
   updateValueParam< double >( d, names::gamma, gamma_, node );
   updateValueParam< double >( d, names::I_e, I_e_, node );
-  updateValueParam< bool >( d, names::regular_spike_arrival, regular_spike_arrival_, node );
+  updateValueParam< bool >( d, "regular_spike_arrival", regular_spike_arrival_, node );
 
   if ( updateValueParam< std::string >( d, names::surrogate_gradient_function, surrogate_gradient_function_, node ) )
   {

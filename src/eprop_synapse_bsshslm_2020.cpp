@@ -58,7 +58,7 @@ void
 EpropSynapseBSSHSLM2020CommonProperties::get_status( DictionaryDatum& d ) const
 {
   CommonSynapseProperties::get_status( d );
-  def< bool >( d, names::average_gradient, average_gradient_ );
+  def< bool >( d, "average_gradient", average_gradient_ );
   def< std::string >( d, names::optimizer, optimizer_cp_->get_name() );
   DictionaryDatum optimizer_dict = new Dictionary;
   optimizer_cp_->get_status( optimizer_dict );
@@ -69,7 +69,7 @@ void
 EpropSynapseBSSHSLM2020CommonProperties::set_status( const DictionaryDatum& d, ConnectorModel& cm )
 {
   CommonSynapseProperties::set_status( d, cm );
-  updateValue< bool >( d, names::average_gradient, average_gradient_ );
+  updateValue< bool >( d, "average_gradient", average_gradient_ );
 
   if ( d->known( names::optimizer ) )
   {

@@ -61,7 +61,7 @@ RecordablesMap< bsshslm::eprop_readout_bsshslm_2020 >::create()
   insert_( names::eprop_history_duration, &bsshslm::eprop_readout_bsshslm_2020::get_eprop_history_duration );
   insert_( names::error_signal, &bsshslm::eprop_readout_bsshslm_2020::get_error_signal_ );
   insert_( names::readout_signal, &bsshslm::eprop_readout_bsshslm_2020::get_readout_signal_ );
-  insert_( names::readout_signal_unnorm, &bsshslm::eprop_readout_bsshslm_2020::get_readout_signal_unnorm_ );
+  insert_( "readout_signal_unnorm", &bsshslm::eprop_readout_bsshslm_2020::get_readout_signal_unnorm_ );
   insert_( names::target_signal, &bsshslm::eprop_readout_bsshslm_2020::get_target_signal_ );
   insert_( names::V_m, &bsshslm::eprop_readout_bsshslm_2020::get_v_m_ );
 }
@@ -115,8 +115,8 @@ eprop_readout_bsshslm_2020::Parameters_::get( DictionaryDatum& d ) const
   def< double >( d, names::C_m, C_m_ );
   def< double >( d, names::E_L, E_L_ );
   def< double >( d, names::I_e, I_e_ );
-  def< std::string >( d, names::loss, loss_ );
-  def< bool >( d, names::regular_spike_arrival, regular_spike_arrival_ );
+  def< std::string >( d, "loss", loss_ );
+  def< bool >( d, "regular_spike_arrival", regular_spike_arrival_ );
   def< double >( d, names::tau_m, tau_m_ );
   def< double >( d, names::V_min, V_min_ + E_L_ );
 }
@@ -133,8 +133,8 @@ eprop_readout_bsshslm_2020::Parameters_::set( const DictionaryDatum& d, Node* no
 
   updateValueParam< double >( d, names::C_m, C_m_, node );
   updateValueParam< double >( d, names::I_e, I_e_, node );
-  updateValueParam< std::string >( d, names::loss, loss_, node );
-  updateValueParam< bool >( d, names::regular_spike_arrival, regular_spike_arrival_, node );
+  updateValueParam< std::string >( d, "loss", loss_, node );
+  updateValueParam< bool >( d, "regular_spike_arrival", regular_spike_arrival_, node );
   updateValueParam< double >( d, names::tau_m, tau_m_, node );
 
   if ( C_m_ <= 0 )
@@ -161,7 +161,7 @@ eprop_readout_bsshslm_2020::State_::get( DictionaryDatum& d, const Parameters_& 
   def< double >( d, names::V_m, v_m_ + p.E_L_ );
   def< double >( d, names::error_signal, error_signal_ );
   def< double >( d, names::readout_signal, readout_signal_ );
-  def< double >( d, names::readout_signal_unnorm, readout_signal_unnorm_ );
+  def< double >( d, "readout_signal_unnorm", readout_signal_unnorm_ );
   def< double >( d, names::target_signal, target_signal_ );
 }
 
