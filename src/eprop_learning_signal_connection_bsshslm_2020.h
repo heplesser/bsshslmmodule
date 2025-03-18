@@ -27,7 +27,7 @@
 // nestkernel
 #include "connection.h"
 
-namespace nest
+namespace bsshslm
 {
 
 /* BeginUserDocs: synapse, e-prop plasticity
@@ -124,6 +124,8 @@ Examples using this model
 
 EndUserDocs */
 
+  using namespace nest;
+  
 void register_eprop_learning_signal_connection_bsshslm_2020( const std::string& name );
 
 /**

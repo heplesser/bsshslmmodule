@@ -30,7 +30,7 @@
 #include "target_identifier.h"
 #include "weight_optimizer.h"
 
-namespace nest
+namespace bsshslm
 {
 
 /* BeginUserDocs: synapse, e-prop plasticity
@@ -165,6 +165,8 @@ Examples using this model
 
 EndUserDocs */
 
+  using namespace nest;
+  
 /**
  * @brief Base class implementing common properties for e-prop synapses.
  *
@@ -365,20 +367,6 @@ private:
 
 template < typename targetidentifierT >
 constexpr ConnectionModelProperties eprop_synapse_bsshslm_2020< targetidentifierT >::properties;
-
-// Explicitly declare specializations of Connector methods that need to do special things for eprop_synapse_bsshslm_2020
-template <>
-void Connector< eprop_synapse_bsshslm_2020< TargetIdentifierPtrRport > >::disable_connection( const size_t lcid );
-
-template <>
-void Connector< eprop_synapse_bsshslm_2020< TargetIdentifierIndex > >::disable_connection( const size_t lcid );
-
-template <>
-Connector< eprop_synapse_bsshslm_2020< TargetIdentifierPtrRport > >::~Connector();
-
-template <>
-Connector< eprop_synapse_bsshslm_2020< TargetIdentifierIndex > >::~Connector();
-
 
 template < typename targetidentifierT >
 eprop_synapse_bsshslm_2020< targetidentifierT >::eprop_synapse_bsshslm_2020()
@@ -628,6 +616,25 @@ eprop_synapse_bsshslm_2020< targetidentifierT >::set_status( const DictionaryDat
   }
 }
 
+} // namespace bsshslm
+
+namespace nest
+{
+// Explicitly declare specializations of Connector methods that need to do special things for
+  // eprop_synapse_bsshslm_2020. These specializations must be declared in namespace nest, because
+  // the original Connector<> template is declared in that namespace.
+
+  template <>
+    void Connector< bsshslm::eprop_synapse_bsshslm_2020< TargetIdentifierPtrRport > >::disable_connection( const size_t lcid );
+
+template <>
+void Connector< bsshslm::eprop_synapse_bsshslm_2020< TargetIdentifierIndex > >::disable_connection( const size_t lcid );
+
+template <>
+Connector< bsshslm::eprop_synapse_bsshslm_2020< TargetIdentifierPtrRport > >::~Connector();
+
+template <>
+Connector< bsshslm::eprop_synapse_bsshslm_2020< TargetIdentifierIndex > >::~Connector();
 } // namespace nest
 
 #endif // EPROP_SYNAPSE_BSSHSLM_2020_H

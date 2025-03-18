@@ -40,11 +40,9 @@
 // sli
 #include "dictutils.h"
 
-namespace bsshslm
-{
 
 void
-register_eprop_iaf_adapt_bsshslm_2020( const std::string& name )
+bsshslm::register_eprop_iaf_adapt_bsshslm_2020( const std::string& name )
 {
   register_node_model< eprop_iaf_adapt_bsshslm_2020 >( name );
 }
@@ -53,20 +51,25 @@ register_eprop_iaf_adapt_bsshslm_2020( const std::string& name )
  * Recordables map
  * ---------------------------------------------------------------- */
 
-RecordablesMap< eprop_iaf_adapt_bsshslm_2020 > eprop_iaf_adapt_bsshslm_2020::recordablesMap_;
+nest::RecordablesMap< bsshslm::eprop_iaf_adapt_bsshslm_2020 > bsshslm::eprop_iaf_adapt_bsshslm_2020::recordablesMap_;
+
+namespace nest
+{
 
 template <>
 void
-RecordablesMap< eprop_iaf_adapt_bsshslm_2020 >::create()
+RecordablesMap< bsshslm::eprop_iaf_adapt_bsshslm_2020 >::create()
 {
-  insert_( names::eprop_history_duration, &eprop_iaf_adapt_bsshslm_2020::get_eprop_history_duration );
-  insert_( names::adaptation, &eprop_iaf_adapt_bsshslm_2020::get_adaptation_ );
-  insert_( names::V_th_adapt, &eprop_iaf_adapt_bsshslm_2020::get_v_th_adapt_ );
-  insert_( names::learning_signal, &eprop_iaf_adapt_bsshslm_2020::get_learning_signal_ );
-  insert_( names::surrogate_gradient, &eprop_iaf_adapt_bsshslm_2020::get_surrogate_gradient_ );
-  insert_( names::V_m, &eprop_iaf_adapt_bsshslm_2020::get_v_m_ );
+  insert_( names::eprop_history_duration, &bsshslm::eprop_iaf_adapt_bsshslm_2020::get_eprop_history_duration );
+  insert_( names::adaptation, &bsshslm::eprop_iaf_adapt_bsshslm_2020::get_adaptation_ );
+  insert_( names::V_th_adapt, &bsshslm::eprop_iaf_adapt_bsshslm_2020::get_v_th_adapt_ );
+  insert_( names::learning_signal, &bsshslm::eprop_iaf_adapt_bsshslm_2020::get_learning_signal_ );
+  insert_( names::surrogate_gradient, &bsshslm::eprop_iaf_adapt_bsshslm_2020::get_surrogate_gradient_ );
+  insert_( names::V_m, &bsshslm::eprop_iaf_adapt_bsshslm_2020::get_v_m_ );
+}
 }
 
+namespace bsshslm {
 /* ----------------------------------------------------------------
  * Default constructors for parameters, state, and buffers
  * ---------------------------------------------------------------- */

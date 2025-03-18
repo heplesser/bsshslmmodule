@@ -39,11 +39,9 @@
 // sli
 #include "dictutils.h"
 
-namespace nest
-{
 
 void
-register_eprop_readout_bsshslm_2020( const std::string& name )
+bsshslm::register_eprop_readout_bsshslm_2020( const std::string& name )
 {
   register_node_model< eprop_readout_bsshslm_2020 >( name );
 }
@@ -52,24 +50,29 @@ register_eprop_readout_bsshslm_2020( const std::string& name )
  * Recordables map
  * ---------------------------------------------------------------- */
 
-RecordablesMap< eprop_readout_bsshslm_2020 > eprop_readout_bsshslm_2020::recordablesMap_;
+nest::RecordablesMap< bsshslm::eprop_readout_bsshslm_2020 > bsshslm::eprop_readout_bsshslm_2020::recordablesMap_;
 
+namespace nest
+{
 template <>
 void
-RecordablesMap< eprop_readout_bsshslm_2020 >::create()
+RecordablesMap< bsshslm::eprop_readout_bsshslm_2020 >::create()
 {
-  insert_( names::eprop_history_duration, &eprop_readout_bsshslm_2020::get_eprop_history_duration );
-  insert_( names::error_signal, &eprop_readout_bsshslm_2020::get_error_signal_ );
-  insert_( names::readout_signal, &eprop_readout_bsshslm_2020::get_readout_signal_ );
-  insert_( names::readout_signal_unnorm, &eprop_readout_bsshslm_2020::get_readout_signal_unnorm_ );
-  insert_( names::target_signal, &eprop_readout_bsshslm_2020::get_target_signal_ );
-  insert_( names::V_m, &eprop_readout_bsshslm_2020::get_v_m_ );
+  insert_( names::eprop_history_duration, &bsshslm::eprop_readout_bsshslm_2020::get_eprop_history_duration );
+  insert_( names::error_signal, &bsshslm::eprop_readout_bsshslm_2020::get_error_signal_ );
+  insert_( names::readout_signal, &bsshslm::eprop_readout_bsshslm_2020::get_readout_signal_ );
+  insert_( names::readout_signal_unnorm, &bsshslm::eprop_readout_bsshslm_2020::get_readout_signal_unnorm_ );
+  insert_( names::target_signal, &bsshslm::eprop_readout_bsshslm_2020::get_target_signal_ );
+  insert_( names::V_m, &bsshslm::eprop_readout_bsshslm_2020::get_v_m_ );
 }
+}
+
+namespace bsshslm
+{
 
 /* ----------------------------------------------------------------
  * Default constructors for parameters, state, and buffers
  * ---------------------------------------------------------------- */
-
 eprop_readout_bsshslm_2020::Parameters_::Parameters_()
   : C_m_( 250.0 )
   , E_L_( 0.0 )

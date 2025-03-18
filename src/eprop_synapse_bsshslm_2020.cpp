@@ -25,7 +25,7 @@
 // nestkernel
 #include "nest_impl.h"
 
-namespace nest
+namespace bsshslm
 {
 
 void
@@ -107,9 +107,13 @@ EpropSynapseBSSHSLM2020CommonProperties::set_status( const DictionaryDatum& d, C
   }
 }
 
+  } // namespace bsshslm
+
+namespace nest {
+  
 template <>
 void
-Connector< eprop_synapse_bsshslm_2020< TargetIdentifierPtrRport > >::disable_connection( const size_t lcid )
+Connector< bsshslm::eprop_synapse_bsshslm_2020< TargetIdentifierPtrRport > >::disable_connection( const size_t lcid )
 {
   assert( not C_[ lcid ].is_disabled() );
   C_[ lcid ].disable();
@@ -118,7 +122,7 @@ Connector< eprop_synapse_bsshslm_2020< TargetIdentifierPtrRport > >::disable_con
 
 template <>
 void
-Connector< eprop_synapse_bsshslm_2020< TargetIdentifierIndex > >::disable_connection( const size_t lcid )
+Connector< bsshslm::eprop_synapse_bsshslm_2020< TargetIdentifierIndex > >::disable_connection( const size_t lcid )
 {
   assert( not C_[ lcid ].is_disabled() );
   C_[ lcid ].disable();
@@ -127,7 +131,7 @@ Connector< eprop_synapse_bsshslm_2020< TargetIdentifierIndex > >::disable_connec
 
 
 template <>
-Connector< eprop_synapse_bsshslm_2020< TargetIdentifierPtrRport > >::~Connector()
+Connector< bsshslm::eprop_synapse_bsshslm_2020< TargetIdentifierPtrRport > >::~Connector()
 {
   for ( auto& c : C_ )
   {
@@ -137,7 +141,7 @@ Connector< eprop_synapse_bsshslm_2020< TargetIdentifierPtrRport > >::~Connector(
 }
 
 template <>
-Connector< eprop_synapse_bsshslm_2020< TargetIdentifierIndex > >::~Connector()
+Connector< bsshslm::eprop_synapse_bsshslm_2020< TargetIdentifierIndex > >::~Connector()
 {
   for ( auto& c : C_ )
   {
@@ -145,6 +149,6 @@ Connector< eprop_synapse_bsshslm_2020< TargetIdentifierIndex > >::~Connector()
   }
   C_.clear();
 }
-
 
 } // namespace nest
+

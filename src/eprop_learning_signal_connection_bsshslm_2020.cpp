@@ -26,7 +26,7 @@
 #include "nest_impl.h"
 
 void
-nest::register_eprop_learning_signal_connection_bsshslm_2020( const std::string& name )
+bsshslm::register_eprop_learning_signal_connection_bsshslm_2020( const std::string& name )
 {
   register_connection_model< eprop_learning_signal_connection_bsshslm_2020 >( name );
 }

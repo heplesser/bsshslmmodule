@@ -32,7 +32,7 @@
 #include "ring_buffer.h"
 #include "universal_data_logger.h"
 
-namespace nest
+namespace bsshslm
 {
 
 /* BeginUserDocs: neuron, e-prop plasticity, current-based
@@ -241,6 +241,8 @@ Examples using this model
 
 EndUserDocs */
 
+  using namespace nest;
+  
 void register_eprop_readout_bsshslm_2020( const std::string& name );
 
 /**
