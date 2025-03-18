@@ -81,10 +81,12 @@ References
 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
-import nest
 import numpy as np
 from cycler import cycler
 from IPython.display import Image
+
+# Import the nest simulator
+import nest
 
 # %% ###########################################################################################################
 # Schematic of network architecture
@@ -184,6 +186,8 @@ params_setup = {
 ####################
 
 nest.ResetKernel()
+nest.Install("bsshslmmodule")  # add bsshslm_2020 models; must come after ResetKernel()
+
 nest.set(**params_setup)
 nest.set_verbosity("M_FATAL")
 

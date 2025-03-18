@@ -177,6 +177,8 @@ params_setup = {
 ####################
 
 nest.ResetKernel()
+nest.Install("bsshslmmodule")  # add bsshslm_2020 models; must come after ResetKernel()
+
 nest.set(**params_setup)
 
 # %% ###########################################################################################################
