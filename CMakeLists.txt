@@ -20,7 +20,6 @@
 cmake_minimum_required( VERSION 3.19 )
 
 list( APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake )
-include( ProcessDependencies )
 
 # Build the complete module name:
 set( MODULE_NAME bsshslmmodule )
