@@ -40,12 +40,8 @@ author = 'NEST developers'
 
 extensions = [
     "sphinx.ext.autosummary",
-    "sphinx.ext.autodoc",
-    "sphinx.ext.coverage",
-    "sphinx.ext.doctest",
     "sphinx.ext.intersphinx",
     "sphinx.ext.mathjax",
-    "sphinx.ext.viewcode",
 ]
 
 
@@ -95,3 +91,9 @@ html_css_files = [
 # Custom sidebar templates, maps page names to templates.
 html_sidebars = {"**": ["logo-text.html", "globaltoc.html", "localtoc.html", "searchbox.html"]}
 
+intersphinx_mapping = {
+    "nestml": ("https://nestml.readthedocs.io/en/latest/", None),
+    "nest": ("https://nest-simulator.readthedocs.io/en/latest/", None),
+    "gpu": ("https://nest-gpu.readthedocs.io/en/latest/", None),
+    "neat": ("https://nest-neat.readthedocs.io/en/latest", None)
+}
